@@ -24,7 +24,7 @@ require('dotenv').config()
 
 
 //Mongoose
-mongoose.connect('mongodb://localhost:27017/Permis',{
+mongoose.connect('mongodb+srv://admin:admin@cluster0.f0vfb.mongodb.net/Permis?retryWrites=true&w=majority',{
     useNewUrlParser : true
 }).then(()=>{
     logWinston.info('Successfully Connected to the Database');

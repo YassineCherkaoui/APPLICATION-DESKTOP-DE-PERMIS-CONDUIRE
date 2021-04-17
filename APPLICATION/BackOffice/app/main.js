@@ -11,7 +11,7 @@ function createWindow() {
     }
   });
 
-  win.loadFile("app/login.html");
+  win.loadFile("app/index.html");
 }
 
 module.exports = {

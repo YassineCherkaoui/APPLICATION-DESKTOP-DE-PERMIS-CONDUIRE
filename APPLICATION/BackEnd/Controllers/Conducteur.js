@@ -87,3 +87,16 @@ exports.conducteurActivated =  async(req, res) => {
     };
 
     
+// ______________________get conductor info by Matricule__________________
+exports.getconductorBymatricule = (req, res) => {
+  Conducteur.find({
+    Matricule: req.params.Matricule
+    })
+    .then(Conducteur => {
+      res.send(Conducteur);
+    }).catch(err => {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving question."
+      });
+    });
+};

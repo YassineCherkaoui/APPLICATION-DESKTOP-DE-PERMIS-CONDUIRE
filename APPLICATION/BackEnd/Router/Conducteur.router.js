@@ -16,5 +16,6 @@ module.exports = function (app) {
     //------------------------get all Conducteur---------------------
     app.get('/Conducteur', Conducteur.getConducteur);
 
-
+    // ______________________get Product by id__________________
+    app.get('/Conducteur/:Matricule', Conducteur.getconductorBymatricule);
 }

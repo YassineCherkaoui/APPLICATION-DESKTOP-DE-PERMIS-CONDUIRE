@@ -63,7 +63,7 @@ $('#add_Conducteur').on('click', function (e) {
             },
             success= function () {
                 alert("Your Info Added");
-                location.href = "login-admin.html"
+                location.href = "index.html"
             });
 
     }
@@ -96,18 +96,7 @@ $('#login_conductor').on('click', function (e) {
         )}
 });
 
-// update constractor 
-// function updateConstractor(_id) {
-//     var $Nombre_de_Pointfild = $('#Nombre_de_Pointfl');
-//     $.put('http://localhost:8081/Conducteur/update/' + _id,
-//         data= {
-//             Nombre_de_Point: $Nombre_de_Pointfild.val()
-//         },
-//         success= function () {
-//             alert("Your Info Added");
-//         });
 
-//     }
 function updateConstractor(_id) {
     var $Nombre_de_Pointfild = $('#Nombre_de_Pointfl');
 
@@ -124,4 +113,37 @@ function updateConstractor(_id) {
     })
 }
 
+$('#Check').on('click', function (e) {
 
+    var $Matricule= $('#Matriculefld');
+    var $getContructor = $('#getContructorbtmat');
+
+    if ($Matricule.val() == "") {
+        alert("Matricule file is empty");
+        e.preventDefault();
+    } else {
+        // Matricule = Matricule2.val();
+        $.ajax({
+            type: 'GET',
+            url: `http://localhost:8081/Conducteur/${Matricule}`,
+            data= {
+                Matricule: $Matricule.val()
+    },
+            success: function () {
+        $getContructor.append(`
+            <tr>
+            <td>${getContructor.Matricule}</td>
+            <td>${getContructor.Nom}</td>
+            <td>${getContructor.Prenom}</td>
+            <td>${getContructor.Email}</td>
+            <td>${getContructor.Telephone}</td>
+            <td>${getContructor.Adresse}</td>
+            <td>${getContructor.Numero_du_Permis}</td>
+            <td>${getContructor.Nombre_de_Point}</td>
+          </tr>
+
+          `)
+    }
+});
+};
+});
